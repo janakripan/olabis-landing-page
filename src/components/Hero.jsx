@@ -34,13 +34,13 @@ const Hero = () => {
           animate="visible"
         >
           {/* Announcement Badge */}
-          <motion.div variants={itemVariants} className="inline-flex items-center gap-2 mb-8 p-1 pr-4 bg-gray-900 rounded-full cursor-pointer hover:bg-gray-800 transition-colors shadow-sm group">
+          <motion.a href="#preview-section" variants={itemVariants} className="inline-flex items-center gap-2 mb-8 p-1 pr-4 bg-gray-900 rounded-full cursor-pointer hover:bg-gray-800 transition-colors shadow-sm group">
             <span className="px-3 py-1 bg-white/10 text-white text-xs font-bold rounded-full">NEW</span>
-            <span className="text-sm font-medium text-gray-200 group-hover:text-white transition-colors">All-in-one Restaurant Management Platform</span>
+            <span className="text-sm font-medium text-gray-200 group-hover:text-white transition-colors">All-in-one Digital Menu System</span>
             <svg className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
             </svg>
-          </motion.div>
+          </motion.a>
           
           {/* Headline */}
           <motion.h1 
@@ -60,12 +60,12 @@ const Hero = () => {
           
           {/* CTA Buttons */}
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-            <button className="w-full sm:w-auto px-8 py-4 bg-accent hover:bg-accent-hover active:bg-accent-active text-white font-bold rounded-xl shadow-[var(--shadow-btn)] transition-all hover:-translate-y-0.5">
+            <a href="#preview-section" className="w-full sm:w-auto px-8 py-4 bg-accent hover:bg-accent-hover active:bg-accent-active text-white font-bold rounded-xl shadow-[var(--shadow-btn)] transition-all hover:-translate-y-0.5 text-center">
               Request Demo
-            </button>
-            <button className="w-full sm:w-auto px-8 py-4 bg-white hover:bg-gray-50 text-text-primary font-bold rounded-xl border border-gray-200 shadow-sm transition-all hover:-translate-y-0.5">
+            </a>
+            <a href="#preview-section" className="w-full sm:w-auto px-8 py-4 bg-white hover:bg-gray-50 text-text-primary font-bold rounded-xl border border-gray-200 shadow-sm transition-all hover:-translate-y-0.5 text-center">
               Live Preview
-            </button>
+            </a>
           </motion.div>
         </motion.div>
 

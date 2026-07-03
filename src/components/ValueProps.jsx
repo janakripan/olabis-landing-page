@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaMobileAlt, FaSyncAlt, FaPrint, FaChartPie } from 'react-icons/fa';
+import { FaMobileAlt, FaSyncAlt, FaPrint, FaLayerGroup } from 'react-icons/fa';
 
 const features = [
   {
@@ -25,9 +25,9 @@ const features = [
     bg: "bg-status-success-bg"
   },
   {
-    title: "Mouth-Watering Analytics",
-    description: "Monitor high-margin dishes via customer choice patterns.",
-    icon: FaChartPie,
+    title: "Unlimited Categories",
+    description: "Organize your digital menu effortlessly with unlimited items and categories.",
+    icon: FaLayerGroup,
     color: "text-status-danger",
     bg: "bg-status-danger-bg"
   }
@@ -45,7 +45,7 @@ const ValueProps = () => {
             viewport={{ once: true }}
             className="text-4xl lg:text-5xl font-extrabold text-text-primary mb-6 tracking-tight"
           >
-            The complete operating system <br className="hidden md:block" /> for modern dining.
+            The complete digital menu solution <br className="hidden md:block" /> for modern businesses.
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -54,7 +54,7 @@ const ValueProps = () => {
             transition={{ delay: 0.1 }}
             className="text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed"
           >
-            Everything you need to run your restaurant, from digital menus to kitchen displays, beautifully integrated into one powerful platform.
+            Everything you need to showcase your products, beautifully integrated into one powerful platform.
           </motion.p>
         </div>
 

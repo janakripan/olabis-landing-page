@@ -18,9 +18,9 @@
   --color-border-theme: rgba(0,0,0,0.08);
   
   /* Accents */
-  --color-accent: #EB9450;
-  --color-accent-hover: #F2A868;
-  --color-accent-active: #EE6310;
+  --color-accent: #BB2117;
+  --color-accent-hover: #D4261A;
+  --color-accent-active: #9C1C13;
   
   /* Text Colors */
   --color-text-primary: #111111;
@@ -39,7 +39,7 @@
   
   /* Shadows */
   --shadow-card: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
-  --shadow-btn: 0 8px 20px -4px rgba(235, 148, 80, 0.4);
+  --shadow-btn: 0 8px 20px -4px rgba(187, 33, 23, 0.4);
   --shadow-dropdown: 0 15px 40px -15px rgba(0, 0, 0, 0.1);
 }
 
@@ -60,10 +60,10 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #EB9450;
+  background: #BB2117;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #F2A868;
+  background: #D4261A;
 }

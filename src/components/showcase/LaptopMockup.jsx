@@ -52,8 +52,8 @@ const LaptopMockup = () => {
                   <div key={item} className="bg-white p-3 rounded-xl shadow-sm border border-gray-100 flex gap-4">
                     <div className="w-20 h-20 bg-gray-100 rounded-lg shrink-0 overflow-hidden relative">
                        {/* Food placeholder visual */}
-                       <div className="absolute inset-0 bg-gradient-to-br from-orange-100 to-orange-50"></div>
-                       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-orange-200 rounded-full opacity-50"></div>
+                       <div className="absolute inset-0 bg-gradient-to-br from-red-100 to-red-50"></div>
+                       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-red-200 rounded-full opacity-50"></div>
                     </div>
                     <div className="flex flex-col justify-between flex-1 py-1">
                       <div>

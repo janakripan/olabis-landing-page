@@ -14,7 +14,13 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = ["Home", "Features", "Solutions", "Portfolio", "Pricing", "Contact"];
+  const navLinks = [
+    { name: "Features", id: "features" },
+    { name: "How It Works", id: "how-it-works" },
+    { name: "Previews", id: "preview-section" },
+    { name: "Testimonials", id: "testimonials" },
+    { name: "Contact", id: "contact" }
+  ];
 
   return (
     <motion.header 
@@ -40,11 +46,11 @@ const Navbar = () => {
         <nav className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
             <a 
-              key={link} 
-              href={`#${link.toLowerCase()}`} 
+              key={link.name} 
+              href={`#${link.id}`} 
               className="text-sm font-semibold text-text-secondary hover:text-text-primary transition-colors"
             >
-              {link}
+              {link.name}
             </a>
           ))}
         </nav>
@@ -85,12 +91,12 @@ const Navbar = () => {
             <nav className="flex flex-col gap-4 mb-8">
               {navLinks.map((link) => (
                 <a 
-                  key={link} 
-                  href={`#${link.toLowerCase()}`} 
+                  key={link.name} 
+                  href={`#${link.id}`} 
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-lg font-semibold text-text-primary hover:text-accent transition-colors"
                 >
-                  {link}
+                  {link.name}
                 </a>
               ))}
             </nav>

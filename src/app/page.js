@@ -4,8 +4,11 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import TrustedBrands from "@/components/TrustedBrands";
 import ValueProps from "@/components/ValueProps";
-import DarkContrast from "@/components/DarkContrast";
-import OrderTracking from "@/components/OrderTracking";
+import HowItWorks from "@/components/HowItWorks";
+import CustomizeMenu from "@/components/CustomizeMenu";
+import FeatureSplit from "@/components/FeatureSplit";
+import DemoShowcase from "@/components/DemoShowcase";
+import BentoFeatures from "@/components/BentoFeatures";
 import Testimonials from "@/components/Testimonials";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
@@ -17,8 +20,11 @@ export default function Home() {
       <Hero />
       <TrustedBrands />
       <ValueProps />
-      <DarkContrast />
-      <OrderTracking />
+      <HowItWorks />
+      <CustomizeMenu />
+      <FeatureSplit />
+      <DemoShowcase />
+      <BentoFeatures />
       <Testimonials />
       <CTA />
       <Footer />

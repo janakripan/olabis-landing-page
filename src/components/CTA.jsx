@@ -1,106 +1,173 @@
+"use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaPhoneAlt } from 'react-icons/fa';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+import { FaPhoneAlt, FaChevronDown } from 'react-icons/fa';
+
+// Validation Schema using Yup
+const ContactSchema = Yup.object().shape({
+  businessName: Yup.string()
+    .min(2, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Required'),
+  email: Yup.string()
+    .email('Invalid email')
+    .required('Required'),
+  phone: Yup.string()
+    .matches(/^[0-9\s]+$/, 'Only numbers and spaces allowed')
+    .min(8, 'Too Short!')
+    .required('Required'),
+  businessType: Yup.string()
+    .required('Required'),
+  message: Yup.string()
+    .min(10, 'Too Short!')
+    .required('Required'),
+});
 
 const CTA = () => {
   return (
-    <section className="py-24 bg-surface-secondary relative overflow-hidden">
-      {/* Faded Dashboard Background */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-20 hidden md:block">
-        <div className="absolute top-10 left-10 w-64 h-32 bg-surface rounded-2xl border border-white/5 blur-sm flex items-end gap-2 p-4">
-          <div className="w-8 h-12 bg-accent/30 rounded-t-sm"></div>
-          <div className="w-8 h-20 bg-accent/30 rounded-t-sm"></div>
-          <div className="w-8 h-16 bg-accent/30 rounded-t-sm"></div>
-          <div className="w-8 h-24 bg-accent/60 rounded-t-sm"></div>
-        </div>
-        <div className="absolute top-40 right-20 w-72 h-40 bg-surface rounded-2xl border border-white/5 blur-sm p-4">
-          <div className="w-full h-4 bg-white/5 rounded mb-4"></div>
-          <div className="w-3/4 h-4 bg-white/5 rounded mb-4"></div>
-          <div className="w-1/2 h-4 bg-accent/40 rounded"></div>
-        </div>
-        <div className="absolute bottom-10 left-1/4 w-96 h-48 bg-surface rounded-2xl border border-white/5 blur-[8px] p-6">
-          <div className="w-12 h-12 rounded-full bg-accent/20 mb-4"></div>
-          <div className="w-full h-2 bg-white/10 rounded mb-2"></div>
-          <div className="w-full h-2 bg-white/10 rounded mb-2"></div>
-        </div>
-      </div>
-
-      {/* Decorative Blur Elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 z-0 pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-background/80 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/3 z-0 pointer-events-none"></div>
-
-      <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
+    <section id="contact" className="py-24 md:py-32 bg-white relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-4xl lg:text-6xl font-extrabold text-text-primary tracking-tight leading-tight mb-6"
-        >
-          Ready to digitize your <br className="hidden md:block"/> dining experience?
-        </motion.h2>
-        
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="text-text-secondary text-lg md:text-xl mb-12 max-w-2xl mx-auto"
-        >
-          Join thousands of smart restaurants increasing their margins and table turnover with our complete management platform.
-        </motion.p>
-
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="bg-surface p-2 rounded-2xl shadow-[var(--shadow-card)] flex flex-col sm:flex-row max-w-xl mx-auto mb-16 border border-white/10 relative z-20 hover:border-accent/30 transition-colors duration-300 group"
-        >
-          <div className="flex-1 flex items-center px-4 py-3 sm:py-0">
-            <FaPhoneAlt className="text-text-secondary mr-3 group-focus-within:text-accent transition-colors" />
-            <input 
-              type="tel" 
-              placeholder="Enter your phone or WhatsApp number" 
-              className="w-full bg-transparent border-none outline-none text-text-primary font-medium placeholder-text-secondary focus:ring-0"
-            />
-          </div>
-          <button className="bg-accent hover:bg-accent-hover active:bg-accent-active text-white font-bold py-4 px-8 rounded-xl transition-all sm:w-auto w-full whitespace-nowrap shadow-[var(--shadow-btn)] hover:shadow-[0_0_20px_rgba(235,148,80,0.4)] hover:-translate-y-0.5">
-            Get Call Back
-          </button>
-        </motion.div>
-
-        {/* Bottom Indicators */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          className="flex flex-col sm:flex-row items-center justify-between pt-8 border-t border-border-theme gap-4"
-        >
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-surface flex items-center justify-center backdrop-blur-sm border border-border-theme">
-              <span className="text-text-primary font-bold text-xl">6+</span>
-            </div>
-            <div className="text-left">
-              <div className="text-text-primary font-bold">Years in Business</div>
-              <div className="text-text-secondary text-sm">Consistent growth</div>
-            </div>
-          </div>
+        {/* Gradient Container */}
+        <div className="bg-gradient-to-r from-[#FFF5F3] to-[#FFF0ED] rounded-[40px] px-8 md:px-16 py-16 md:py-24 relative flex flex-col xl:flex-row">
           
-          <div className="hidden sm:block w-px h-12 bg-border-theme"></div>
+          {/* Left Side: Text Content */}
+          <div className="w-full xl:w-[55%] relative z-10">
+            <h2 className="text-[40px] md:text-[48px] font-bold text-gray-900 leading-[1.1] mb-6 tracking-tight">
+              Ready To Create Your Own<br />Digital QR Menu?
+            </h2>
+            
+            <p className="text-gray-600 font-medium leading-relaxed mb-4 text-[15px] max-w-lg">
+              Transform your menu and reach out to us — we'll set everything up for you. Whether you need a simple QR menu or full-service management, we'll guide you through the process.
+            </p>
+            
+            <p className="text-gray-900 font-bold leading-relaxed mb-8 text-[15px] max-w-lg">
+              Reach us today and take the first step toward a smarter, more engaging menu!
+            </p>
 
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-surface flex items-center justify-center backdrop-blur-sm border border-border-theme">
-              <span className="text-text-primary font-bold text-xl">4k</span>
-            </div>
-            <div className="text-left">
-              <div className="text-text-primary font-bold">Case Studies Delivered</div>
-              <div className="text-text-secondary text-sm">Proven ROI metrics</div>
+            <a href="tel:+971527565719" className="inline-flex items-center gap-3 bg-[#9C1C13] text-white font-bold text-sm px-6 py-3.5 rounded-lg hover:bg-red-800 transition-colors shadow-lg shadow-red-900/20">
+              <FaPhoneAlt className="w-3.5 h-3.5" />
+              Call Us: +971 52 756 57 19
+            </a>
+
+            {/* Hand-drawn Arrow SVG */}
+            <div className="absolute right-[-40px] top-[40%] hidden xl:block text-[#9C1C13]">
+              <svg width="80" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="transform rotate-[15deg]">
+                <path d="M10,80 Q30,10 90,40" stroke="currentColor" strokeWidth="3" strokeLinecap="round" fill="none" />
+                <path d="M70,25 L92,41 L70,55" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+              </svg>
             </div>
           </div>
-        </motion.div>
-        
+
+          {/* Right Side: Overlapping Form Card */}
+          <div className="w-full xl:w-[440px] xl:absolute xl:right-12 xl:-top-12 xl:-bottom-12 bg-white rounded-[32px] shadow-[0_20px_60px_rgba(0,0,0,0.08)] p-8 md:p-10 z-20 mt-16 xl:mt-0 flex flex-col justify-center border border-gray-50">
+            <h3 className="text-3xl font-black text-center text-gray-900 mb-8 tracking-tight">Let's Talk Your Menu!</h3>
+            
+            <Formik
+              initialValues={{
+                businessName: '',
+                email: '',
+                phone: '',
+                businessType: 'Restaurant',
+                message: ''
+              }}
+              validationSchema={ContactSchema}
+              onSubmit={(values, { setSubmitting, resetForm }) => {
+                setTimeout(() => {
+                  console.log(JSON.stringify(values, null, 2));
+                  alert('Message Sent!');
+                  setSubmitting(false);
+                  resetForm();
+                }, 400);
+              }}
+            >
+              {({ isSubmitting, errors, touched }) => (
+                <Form className="flex flex-col gap-5">
+                  
+                  {/* Business Name */}
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-[11px] font-bold text-gray-700">Business Name</label>
+                    <Field 
+                      name="businessName" 
+                      placeholder="My Business"
+                      className={`w-full px-4 py-3 rounded-xl border ${errors.businessName && touched.businessName ? 'border-red-500 bg-red-50' : 'border-gray-100 bg-white'} text-sm focus:outline-none focus:ring-2 focus:ring-red-100 transition-all`}
+                    />
+                  </div>
+
+                  {/* Email */}
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-[11px] font-bold text-gray-700">Your Email</label>
+                    <Field 
+                      name="email" 
+                      type="email"
+                      placeholder="email@yourbusiness.com"
+                      className={`w-full px-4 py-3 rounded-xl border ${errors.email && touched.email ? 'border-red-500 bg-red-50' : 'border-gray-100 bg-white'} text-sm focus:outline-none focus:ring-2 focus:ring-red-100 transition-all`}
+                    />
+                  </div>
+
+                  {/* Phone Number */}
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-[11px] font-bold text-gray-700">Phone Number</label>
+                    <div className={`flex w-full rounded-xl border overflow-hidden ${errors.phone && touched.phone ? 'border-red-500 bg-red-50' : 'border-gray-100 bg-white'} focus-within:ring-2 focus-within:ring-red-100 transition-all`}>
+                       {/* Country Code Prefix */}
+                       <div className="flex items-center gap-2 bg-gray-50/50 px-4 py-3 border-r border-gray-100 shrink-0">
+                         <img src="https://flagcdn.com/w20/ae.png" alt="UAE" className="w-4 rounded-sm shadow-sm" />
+                         <span className="text-xs font-bold text-gray-700">+971</span>
+                         <FaChevronDown className="text-gray-400 text-[10px]" />
+                       </div>
+                       <Field 
+                        name="phone" 
+                        placeholder="X XXX XXXX XXX"
+                        className="w-full px-4 py-3 text-sm focus:outline-none bg-transparent"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Business Type */}
+                  <div className="flex flex-col gap-1.5 relative">
+                    <label className="text-[11px] font-bold text-gray-700">Your Business</label>
+                    <Field 
+                      as="select"
+                      name="businessType" 
+                      className={`w-full px-4 py-3 rounded-xl border ${errors.businessType && touched.businessType ? 'border-red-500 bg-red-50' : 'border-gray-100 bg-white'} text-sm focus:outline-none focus:ring-2 focus:ring-red-100 transition-all appearance-none cursor-pointer`}
+                    >
+                      <option value="Restaurant">Restaurant</option>
+                      <option value="Cafe">Cafe</option>
+                      <option value="Supermarket">Supermarket</option>
+                      <option value="Other">Other</option>
+                    </Field>
+                    <FaChevronDown className="absolute right-4 top-[38px] text-gray-400 text-[10px] pointer-events-none" />
+                  </div>
+
+                  {/* Message */}
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-[11px] font-bold text-gray-700">How Can We Help You?</label>
+                    <Field 
+                      as="textarea"
+                      name="message" 
+                      rows="3"
+                      placeholder="Tell us about your needs..."
+                      className={`w-full px-4 py-3 rounded-xl border ${errors.message && touched.message ? 'border-red-500 bg-red-50' : 'border-gray-100 bg-white'} text-sm focus:outline-none focus:ring-2 focus:ring-red-100 transition-all resize-none`}
+                    />
+                  </div>
+
+                  {/* Submit Button */}
+                  <button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="w-full bg-[#9C1C13] text-white font-bold text-sm py-3.5 rounded-lg hover:bg-red-800 transition-colors shadow-lg shadow-red-900/20 mt-2"
+                  >
+                    Send Message
+                  </button>
+
+                </Form>
+              )}
+            </Formik>
+          </div>
+
+        </div>
       </div>
     </section>
   );
