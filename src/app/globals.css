@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #1F222F;
-  --foreground: #EAE7E3;
+  --background: #F7F5F3;
+  --foreground: #111111;
 }
 
 @theme inline {
@@ -11,11 +11,11 @@
   --font-sans: var(--font-inter);
   
   /* Surface / Cards */
-  --color-surface: #23202F;
-  --color-surface-secondary: #353946;
+  --color-surface: #FFFFFF;
+  --color-surface-secondary: #F3F4F6;
   
   /* Borders & Dividers */
-  --color-border-theme: #585A62;
+  --color-border-theme: rgba(0,0,0,0.08);
   
   /* Accents */
   --color-accent: #EB9450;
@@ -23,24 +23,24 @@
   --color-accent-active: #EE6310;
   
   /* Text Colors */
-  --color-text-primary: #EAE7E3;
-  --color-text-secondary: #A5A39E;
-  --color-text-disabled: rgba(234, 231, 227, 0.45);
+  --color-text-primary: #111111;
+  --color-text-secondary: #6B7280;
+  --color-text-disabled: rgba(17, 17, 17, 0.45);
   
   /* Status Colors */
-  --color-status-success: #31D067;
-  --color-status-success-bg: rgba(49, 208, 103, 0.12);
-  --color-status-warning: #F4B350;
-  --color-status-warning-bg: rgba(244, 179, 80, 0.12);
-  --color-status-danger: #E45A5A;
-  --color-status-danger-bg: rgba(228, 90, 90, 0.12);
-  --color-status-info: #EB9450;
-  --color-status-info-bg: rgba(235, 148, 80, 0.12);
+  --color-status-success: #10B981;
+  --color-status-success-bg: rgba(16, 185, 129, 0.12);
+  --color-status-warning: #F59E0B;
+  --color-status-warning-bg: rgba(245, 158, 11, 0.12);
+  --color-status-danger: #EF4444;
+  --color-status-danger-bg: rgba(239, 68, 68, 0.12);
+  --color-status-info: #3B82F6;
+  --color-status-info-bg: rgba(59, 130, 246, 0.12);
   
   /* Shadows */
-  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.25);
-  --shadow-btn: 0 8px 20px rgba(235, 148, 80, 0.35);
-  --shadow-dropdown: 0 15px 40px rgba(0, 0, 0, 0.35);
+  --shadow-card: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+  --shadow-btn: 0 8px 20px -4px rgba(235, 148, 80, 0.4);
+  --shadow-dropdown: 0 15px 40px -15px rgba(0, 0, 0, 0.1);
 }
 
 body {
