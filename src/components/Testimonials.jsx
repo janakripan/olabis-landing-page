@@ -4,9 +4,9 @@ import { FaStar } from 'react-icons/fa';
 
 const testimonials = [
   {
-    quote: "Implementing ScannTek DigiMenu completely eliminated our weekly menu printing costs. The ability to instantly update out-of-stock items has reduced guest complaints to near zero. A total game-changer for our high-volume bistro.",
+    quote: "Implementing ScannTek DigiMenu completely eliminated our weekly printing costs. The ability to instantly update out-of-stock items has reduced customer complaints to near zero. A total game-changer for our busy supermarket.",
     author: "Sarah Jenkins",
-    role: "General Manager, The Rustic Spoon",
+    role: "Store Manager, Fresh & Co Market",
     initials: "SJ",
     color: "bg-red-50 text-[#9C1C13]"
   },
@@ -18,9 +18,9 @@ const testimonials = [
     color: "bg-red-50 text-[#9C1C13]"
   },
   {
-    quote: "The direct Kitchen Order Ticket bridge is flawless. During our weekend rushes, tables turn 15 minutes faster because guests can reorder drinks or desserts without waiting to flag down a server. Unbelievably seamless.",
-    author: "Chef Liam O'Connor",
-    role: "Executive Chef, Seaside Grill",
+    quote: "The direct order bridging is flawless. During our weekend rushes, checkout is much faster because customers can scan and review products without waiting. Unbelievably seamless.",
+    author: "Liam O'Connor",
+    role: "Operations Director, Urban Retailers",
     initials: "LO",
     color: "bg-red-50 text-[#9C1C13]"
   }
@@ -51,7 +51,7 @@ const Testimonials = () => {
             viewport={{ once: true }}
             className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4"
           >
-            Trusted by 30k+ world class companies & dining teams
+            Trusted by 30k+ world class retail & dining teams
           </motion.h2>
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}

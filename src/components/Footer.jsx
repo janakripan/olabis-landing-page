@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { FaApple, FaGooglePlay } from 'react-icons/fa';
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="max-w-[1200px] mx-auto px-6">
         
         <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
-          {/* Brand */}
+          {/* Brand & Socials */}
           <div className="max-w-sm">
             <div className="mb-6">
               <Image 
@@ -19,31 +19,43 @@ const Footer = () => {
                 className="w-auto h-8 object-contain"
               />
             </div>
-            <p className="text-gray-500 text-[15px] leading-relaxed mb-6 font-medium">
+            <p className="text-gray-500 text-[15px] leading-relaxed mb-8 font-medium">
               Empowering restaurants and retail businesses to digitize their customer experience, reduce overheads, and streamline operations.
             </p>
+            <div className="flex gap-4">
+              <a href="#" className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 hover:bg-[#BB2117] hover:text-white transition-all shadow-sm">
+                <FaFacebookF className="w-4 h-4" />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 hover:bg-[#BB2117] hover:text-white transition-all shadow-sm">
+                <FaTwitter className="w-4 h-4" />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 hover:bg-[#BB2117] hover:text-white transition-all shadow-sm">
+                <FaInstagram className="w-4 h-4" />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 hover:bg-[#BB2117] hover:text-white transition-all shadow-sm">
+                <FaLinkedinIn className="w-4 h-4" />
+              </a>
+            </div>
           </div>
 
-          {/* Download App Banner Block */}
-          <div className="bg-[#FAFAFA] p-8 rounded-[24px] border border-gray-100 flex-1 max-w-md w-full shadow-sm">
-            <h4 className="font-bold text-gray-900 mb-2 text-lg">Get the Manager App</h4>
-            <p className="text-gray-500 text-sm mb-6">Manage orders and your digital menu directly from your pocket.</p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <button className="flex-1 bg-white border border-gray-200 hover:border-[#BB2117] hover:shadow-md text-gray-900 rounded-xl py-2.5 px-4 flex items-center justify-center gap-3 transition-all group">
-                <FaApple className="w-6 h-6 group-hover:text-[#BB2117] transition-colors" />
-                <div className="text-left">
-                  <div className="text-[10px] leading-none text-gray-500">Download on the</div>
-                  <div className="text-sm font-bold leading-tight">App Store</div>
-                </div>
-              </button>
-              <button className="flex-1 bg-white border border-gray-200 hover:border-[#BB2117] hover:shadow-md text-gray-900 rounded-xl py-2.5 px-4 flex items-center justify-center gap-3 transition-all group">
-                <FaGooglePlay className="w-5 h-5 group-hover:text-[#BB2117] transition-colors" />
-                <div className="text-left">
-                  <div className="text-[10px] leading-none text-gray-500">GET IT ON</div>
-                  <div className="text-sm font-bold leading-tight">Google Play</div>
-                </div>
-              </button>
+          {/* Links Columns */}
+          <div className="flex flex-wrap md:flex-nowrap gap-12 lg:gap-24">
+            
+            {/* Explore Column */}
+            <div className="flex flex-col gap-4">
+              <h4 className="font-bold text-gray-900 mb-2">Explore</h4>
+              <a href="#features" className="text-gray-500 hover:text-[#BB2117] text-sm font-medium transition-colors">Features</a>
+              <a href="#how-it-works" className="text-gray-500 hover:text-[#BB2117] text-sm font-medium transition-colors">How It Works</a>
+              <a href="#preview-section" className="text-gray-500 hover:text-[#BB2117] text-sm font-medium transition-colors">Live Previews</a>
             </div>
+
+            {/* Connect Column */}
+            <div className="flex flex-col gap-4">
+              <h4 className="font-bold text-gray-900 mb-2">Connect</h4>
+              <a href="#testimonials" className="text-gray-500 hover:text-[#BB2117] text-sm font-medium transition-colors">Testimonials</a>
+              <a href="#contact" className="text-gray-500 hover:text-[#BB2117] text-sm font-medium transition-colors">Contact Us</a>
+            </div>
+
           </div>
         </div>
 

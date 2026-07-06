@@ -73,7 +73,7 @@ const HowItWorks = () => {
                       <path d="M18.89 10.74c.07-.24.11-.5.11-.74 0-1.66-1.34-3-3-3-.46 0-.89.11-1.28.29-.6-1.39-2.02-2.29-3.72-2.29-1.7 0-3.12.9-3.72 2.29-.39-.18-.82-.29-1.28-.29-1.66 0-3 1.34-3 3 0 .24.04.5.11.74C2.52 11.58 1.5 13.17 1.5 15v5h19v-5c0-1.83-1.02-3.42-2.61-4.26z" />
                     </svg>
                  </div>
-                 <span className="text-sm font-medium">Restaurant</span>
+                 <span className="text-sm font-medium">Our Team</span>
               </div>
 
               {/* Connecting elements */}
@@ -96,8 +96,8 @@ const HowItWorks = () => {
 
               {/* Right Box (Ketchup) */}
               <div className="w-[45%] h-[140px] bg-[#BB2117] rounded-l-[32px] rounded-r-[16px] flex flex-col items-center justify-center text-white z-10 -mr-6">
-                 <div className="text-2xl font-black tracking-tight mb-1">ketchup</div>
-                 <span className="text-xs text-white/80 font-medium">Sales Team</span>
+                 <div className="text-2xl font-black tracking-tight mb-1">SuperMart</div>
+                 <span className="text-xs text-white/80 font-medium">Store Admin</span>
               </div>
             </div>
           </motion.div>
@@ -117,62 +117,7 @@ const HowItWorks = () => {
             <div className="mt-4 mx-6 h-[240px] relative">
                {/* UI Mockup Window */}
                <div className="absolute inset-0 top-6 bg-white rounded-t-[20px] border border-gray-100 shadow-[0_-10px_40px_rgba(0,0,0,0.05)] overflow-clip">
-                 
-                 {/* Mockup Header */}
-                 <div className="h-12 border-b border-gray-100 flex items-center justify-between px-6">
-                   <div className="flex gap-3">
-                     <div className="w-5 h-5 rounded-md bg-gray-100 flex items-center justify-center">
-                        <div className="w-2.5 h-2.5 rounded-full bg-gray-400"></div>
-                     </div>
-                     <div className="w-5 h-5 rounded-md bg-gray-100 flex items-center justify-center">
-                        <div className="w-2.5 h-2.5 bg-gray-400" style={{ clipPath: 'polygon(50% 0%, 100% 100%, 0% 100%)'}}></div>
-                     </div>
-                   </div>
-                   <div className="flex gap-1.5 items-center">
-                      {/* Flag dots */}
-                      <div className="w-4 h-4 rounded-full bg-red-500"></div>
-                      <div className="w-4 h-4 rounded-full bg-blue-800 flex items-center justify-center"><div className="w-full h-1 bg-white rotate-45"></div></div>
-                      <div className="w-4 h-4 rounded-full bg-red-600 flex items-center justify-center"><div className="w-1 h-full bg-yellow-400"></div></div>
-                   </div>
-                 </div>
-
-                 {/* Mockup Body */}
-                 <div className="p-5 flex flex-col gap-6 relative">
-                    {/* Item 1 */}
-                    <div className="flex gap-4 relative">
-                       {/* Burger Image */}
-                       <div className="w-24 h-24 bg-red-50 rounded-xl relative shrink-0">
-                         <div className="absolute -top-3 -left-3 bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full z-10 border-2 border-white">NEW</div>
-                         <img src="/burger.png" alt="Burger" className="w-full h-full object-cover scale-110" />
-                       </div>
-
-                       {/* Edit Form */}
-                       <div className="flex-1 relative z-10">
-                          <div className="flex justify-between items-start mb-2">
-                             <div className="border border-red-400 border-dashed px-2 py-0.5 inline-block text-sm font-bold text-gray-900 rounded-sm">Double Burger</div>
-                             <div className="font-bold text-gray-900">64.99 <span className="text-gray-400 text-[10px]">AED</span></div>
-                          </div>
-                          <div className="text-[9px] text-gray-400 font-bold mb-1 tracking-wider uppercase">Meat - Classic</div>
-                          <div className="border border-red-300 px-2 py-1.5 text-[10px] text-gray-500 leading-snug rounded-sm max-w-[180px]">
-                            Introducing the ultimate double burger, stacked high with two juicy beef pat|
-                          </div>
-                       </div>
-                    </div>
-
-                    {/* Item 2 */}
-                    <div className="flex gap-4 opacity-50 relative top-[-10px]">
-                       <div className="w-24 h-16 bg-red-50 rounded-xl relative shrink-0 overflow-clip">
-                         <img src="/hero-pizza.png" alt="Pizza" className="w-full h-full object-cover" />
-                       </div>
-                       <div className="flex-1">
-                          <div className="flex justify-between items-start">
-                             <div className="text-sm font-bold text-gray-900">Gourmet Pizza</div>
-                             <div className="font-bold text-gray-900">51.50 <span className="text-gray-400 text-[10px]">AED</span></div>
-                          </div>
-                       </div>
-                    </div>
-
-                 </div>
+                 <img src="/realistic_menu.png" alt="Realistic Digital Menu" className="w-full h-full object-cover object-top" />
                </div>
             </div>
           </motion.div>
@@ -195,12 +140,12 @@ const HowItWorks = () => {
                   
                   {/* Tablet */}
                   <div className="relative z-10 w-[360px] mr-12">
-                     <TabletMockup />
+                     <TabletMockup imageSrc="/demo-retail-images/demo-retail-tablet.png" />
                   </div>
                   
                   {/* Phone */}
                   <div className="absolute right-0 bottom-10 z-20 w-[130px]">
-                     <PhoneMockup />
+                     <PhoneMockup imageSrc="/demo-retail-images/demo-retail-mobile.png" />
                   </div>
 
                </div>

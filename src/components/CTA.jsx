@@ -3,7 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { FaPhoneAlt, FaChevronDown } from 'react-icons/fa';
+import { FaPhoneAlt, FaChevronDown, FaWhatsapp } from 'react-icons/fa';
 
 // Validation Schema using Yup
 const ContactSchema = Yup.object().shape({
@@ -36,7 +36,7 @@ const CTA = () => {
           {/* Left Side: Text Content */}
           <div className="w-full xl:w-[55%] relative z-10">
             <h2 className="text-[40px] md:text-[48px] font-bold text-gray-900 leading-[1.1] mb-6 tracking-tight">
-              Ready To Create Your Own<br />Digital QR Menu?
+              Ready To Digitize Your<br />Retail or Restaurant Menu?
             </h2>
             
             <p className="text-gray-600 font-medium leading-relaxed mb-4 text-[15px] max-w-lg">
@@ -47,9 +47,9 @@ const CTA = () => {
               Reach us today and take the first step toward a smarter, more engaging menu!
             </p>
 
-            <a href="tel:+971527565719" className="inline-flex items-center gap-3 bg-[#9C1C13] text-white font-bold text-sm px-6 py-3.5 rounded-lg hover:bg-red-800 transition-colors shadow-lg shadow-red-900/20">
-              <FaPhoneAlt className="w-3.5 h-3.5" />
-              Call Us: +971 52 756 57 19
+            <a href="https://wa.me/971562411061?text=Hello,%20I%20would%20like%20more%20information%20about%20your%20digital%20menu%20services." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-[#9C1C13] text-white font-bold text-sm px-6 py-3.5 rounded-lg hover:bg-red-800 transition-colors shadow-lg shadow-red-900/20 w-fit">
+              <FaWhatsapp className="w-4 h-4" />
+              Chat with us on WhatsApp
             </a>
 
             {/* Hand-drawn Arrow SVG */}
@@ -63,7 +63,7 @@ const CTA = () => {
 
           {/* Right Side: Overlapping Form Card */}
           <div className="w-full xl:w-[440px] xl:absolute xl:right-12 xl:-top-12 xl:-bottom-12 bg-white rounded-[32px] shadow-[0_20px_60px_rgba(0,0,0,0.08)] p-8 md:p-10 z-20 mt-16 xl:mt-0 flex flex-col justify-center border border-gray-50">
-            <h3 className="text-3xl font-black text-center text-gray-900 mb-8 tracking-tight">Let's Talk Your Menu!</h3>
+            <h3 className="text-3xl font-black text-center text-gray-900 mb-8 tracking-tight">Let's Talk About Your Digital Display!</h3>
             
             <Formik
               initialValues={{
@@ -75,12 +75,11 @@ const CTA = () => {
               }}
               validationSchema={ContactSchema}
               onSubmit={(values, { setSubmitting, resetForm }) => {
-                setTimeout(() => {
-                  console.log(JSON.stringify(values, null, 2));
-                  alert('Message Sent!');
-                  setSubmitting(false);
-                  resetForm();
-                }, 400);
+                const text = `Hello, I'm interested in creating a digital menu.\n\nBusiness Name: ${values.businessName}\nEmail: ${values.email}\nPhone: ${values.phone}\nBusiness Type: ${values.businessType}\nMessage: ${values.message}`;
+                const whatsappUrl = `https://wa.me/971562411061?text=${encodeURIComponent(text)}`;
+                window.open(whatsappUrl, '_blank');
+                setSubmitting(false);
+                resetForm();
               }}
             >
               {({ isSubmitting, errors, touched }) => (

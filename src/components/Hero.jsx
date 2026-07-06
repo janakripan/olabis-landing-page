@@ -19,7 +19,7 @@ const itemVariants = {
 
 const Hero = () => {
   return (
-    <section className="relative pt-32 lg:pt-48 pb-20 overflow-hidden bg-background">
+    <section id="hero" className="relative pt-32 lg:pt-48 pb-20 overflow-hidden bg-background">
       
       {/* Soft Radial Background Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[120px] pointer-events-none z-0"></div>
@@ -55,12 +55,12 @@ const Hero = () => {
             variants={itemVariants}
             className="text-lg lg:text-[19px] text-text-secondary mb-10 max-w-[620px] leading-relaxed"
           >
-            Streamline your operations with our all-in-one solution. Seamlessly integrate QR Ordering, POS, Digital Menus, Kitchen Management, Analytics, Inventory, and Reservations into one powerful ecosystem.
+            Streamline your retail and restaurant operations with our all-in-one solution. Seamlessly integrate QR Ordering, POS, Digital Displays, Inventory, Analytics, and more into one powerful ecosystem.
           </motion.p>
           
           {/* CTA Buttons */}
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-            <a href="#preview-section" className="w-full sm:w-auto px-8 py-4 bg-accent hover:bg-accent-hover active:bg-accent-active text-white font-bold rounded-xl shadow-[var(--shadow-btn)] transition-all hover:-translate-y-0.5 text-center">
+            <a href="#contact" className="w-full sm:w-auto px-8 py-4 bg-accent hover:bg-accent-hover active:bg-accent-active text-white font-bold rounded-xl shadow-[var(--shadow-btn)] transition-all hover:-translate-y-0.5 text-center">
               Request Demo
             </a>
             <a href="#preview-section" className="w-full sm:w-auto px-8 py-4 bg-white hover:bg-gray-50 text-text-primary font-bold rounded-xl border border-gray-200 shadow-sm transition-all hover:-translate-y-0.5 text-center">

@@ -34,7 +34,7 @@ const BentoFeatures = () => {
             <div>
               <h3 className="text-xl font-bold text-white mb-2">Increase Sales.</h3>
               <p className="text-gray-400 font-medium leading-relaxed">
-                Digital restaurant menu boards help influence customer decisions and make unplanned purchases at the right time.
+                Digital menu boards and displays help influence customer decisions and drive unplanned purchases at the right time.
               </p>
             </div>
             <div className="mt-12 text-center relative z-10">
@@ -142,7 +142,7 @@ const BentoFeatures = () => {
           <motion.div variants={cardVariants} className="md:col-span-2 bg-white border-2 border-red-50 rounded-[32px] p-8 pb-0 lg:p-10 lg:pb-0 shadow-sm flex flex-col relative overflow-hidden group">
             <div className="relative z-10 w-full mb-8">
               <h3 className="text-[22px] font-bold text-gray-900 mb-2 leading-tight">
-                Efficiently manage your dynamic digital menus at scale. <span className="font-medium text-gray-500">Centralize your customer experience management and standardize tools across all your locations</span>
+                Efficiently manage your dynamic digital menus at scale. <span className="font-medium text-gray-500">Centralize your retail or dining experience management and standardize tools across all your locations</span>
               </h3>
             </div>
             

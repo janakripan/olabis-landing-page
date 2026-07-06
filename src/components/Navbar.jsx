@@ -4,13 +4,30 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    let lastScrollY = window.scrollY;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+      
+      // Update background shadow based on scroll position
+      setIsScrolled(currentScrollY > 20);
+      
+      // Determine scroll direction (hide when scrolling down past 80px, show when scrolling up)
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        setIsVisible(false);
+        setIsMobileMenuOpen(false); // Close menu if scrolling down
+      } else {
+        setIsVisible(true);
+      }
+      
+      lastScrollY = currentScrollY;
     };
-    window.addEventListener('scroll', handleScroll);
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -25,21 +42,23 @@ const Navbar = () => {
   return (
     <motion.header 
       initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-6 left-0 right-0 z-50 transition-all duration-300 mx-auto px-4 sm:px-6 w-full max-w-[95%] lg:max-w-[1200px]`}
+      animate={{ y: isVisible ? 0 : -150, opacity: isVisible ? 1 : 0 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className={`fixed top-6 left-0 right-0 z-50 mx-auto px-4 sm:px-6 w-full max-w-[95%] lg:max-w-[1200px]`}
     >
       <div className={`h-16 md:h-20 bg-surface rounded-[16px] flex items-center justify-between px-6 lg:px-8 border border-border-theme transition-all duration-300 ${isScrolled ? 'shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)]' : 'shadow-sm'}`}>
         
         {/* Left: Logo */}
-        <div className="flex items-center cursor-pointer">
-          <Image 
-            src="/olabis.png" 
-            alt="Olabis Logo" 
-            width={120} 
-            height={40} 
-            className="w-auto h-7 md:h-8 object-contain"
-          />
+        <div className="flex items-center cursor-pointer hover:opacity-80 transition-opacity">
+          <a href="#hero">
+            <Image 
+              src="/olabis.png" 
+              alt="Olabis Logo" 
+              width={120} 
+              height={40} 
+              className="w-auto h-7 md:h-8 object-contain"
+            />
+          </a>
         </div>
 
         {/* Center: Links (Desktop) */}
@@ -57,12 +76,9 @@ const Navbar = () => {
 
         {/* Right: CTAs (Desktop) */}
         <div className="hidden lg:flex items-center gap-4">
-          <button className="px-5 py-2.5 text-sm font-bold text-text-primary border border-border-theme hover:bg-surface-secondary rounded-xl transition-colors">
-            Login
-          </button>
-          <button className="px-5 py-2.5 bg-accent hover:bg-accent-hover active:bg-accent-active text-white text-sm font-bold rounded-xl shadow-[var(--shadow-btn)] transition-all hover:-translate-y-0.5">
+          <a href="#contact" className="px-5 py-2.5 bg-accent hover:bg-accent-hover active:bg-accent-active text-white text-sm font-bold rounded-xl shadow-[var(--shadow-btn)] transition-all hover:-translate-y-0.5">
             Book Demo
-          </button>
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -101,12 +117,9 @@ const Navbar = () => {
               ))}
             </nav>
             <div className="flex flex-col gap-3">
-              <button className="w-full py-4 text-center font-bold text-text-primary border border-border-theme hover:bg-surface-secondary rounded-xl transition-colors">
-                Login
-              </button>
-              <button className="w-full py-4 text-center bg-accent hover:bg-accent-hover active:bg-accent-active text-white font-bold rounded-xl shadow-[var(--shadow-btn)] transition-all">
+              <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="w-full py-4 text-center bg-accent hover:bg-accent-hover active:bg-accent-active text-white font-bold rounded-xl shadow-[var(--shadow-btn)] transition-all block">
                 Book Demo
-              </button>
+              </a>
             </div>
           </motion.div>
         )}

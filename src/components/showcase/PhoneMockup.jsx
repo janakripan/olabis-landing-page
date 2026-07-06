@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PhoneMockup = () => {
+const PhoneMockup = ({ imageSrc = "/hero/mobile-menu-img.png" }) => {
   return (
     <div className="w-[110px] lg:w-[130px] aspect-[1/2.1] bg-[#111] rounded-[18px] lg:rounded-[24px] p-1.5 shadow-[0_30px_60px_rgba(0,0,0,0.5)] relative border-[3px] border-gray-800">
       {/* Notch / Dynamic Island */}
@@ -8,7 +8,7 @@ const PhoneMockup = () => {
 
       {/* Screen */}
       <div className="w-full h-full bg-white rounded-[14px] lg:rounded-[18px] overflow-hidden relative">
-        <img src="/hero/mobile-menu-img.png" alt="Mobile Menu" className="w-full h-full object-cover object-top" />
+        <img src={imageSrc} alt="Mobile Menu" className="w-full h-full object-cover object-top" />
       </div>
     </div>
   );
